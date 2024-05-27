@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT ME</title>
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="IMAGES/LOGO-FANNY.ico">
+    <style>
+        body{
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('IMAGES/BG.gif');
+        }
+        #content-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-grow: 1;
+        }
+
+        #slider-container {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+            text-align: center;
+        }
+
+        img {
+            width: 60%;
+            height: auto;
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+            text-align: center;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="IMAGES/LOGO FANNY.png" alt="Logo">
+        <h1 class="Titulo">Acerca de mi: Angeles Estefania Anaya Santiago</h1>
+    </header>
+    <main>
+        <div id="slider-container">
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <img src="IMAGES/1.png" alt="Slide 1">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/2.png" alt="Slide 2">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/3.png" alt="Slide 3">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/4.png" alt="Slide 4">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/5.png" alt="Slide 5">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/6.png" alt="Slide 5">
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+    
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-left">
+            <a href="index.html"><img src="IMAGES/MENU.png" alt="Imagen 1"></a>
+            <p>MENU</p>        
+        </div>
+        <div class="footer-center">
+            <a href="Skills.html"><img src="IMAGES/skills.jpg" alt="Imagen 3"></a>
+            <p>SKILLS</p>
+        </div>
+        <div class="footer-right">
+            <a href="FILES/CV ANGELES ESTEFANIA ANAYA.pdf" target="_blank"><img src="IMAGES/CV.png" alt="Imagen 2"></a>
+            <p>RESUME</p>
+        </div>
+    </footer>
+    <script>
+        let slideIndex = 1;
+
+        function showSlides(n) {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        showSlides(slideIndex);
+    </script>
+</body>
+</html>
